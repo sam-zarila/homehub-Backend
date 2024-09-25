@@ -35,11 +35,11 @@ import { Hostel } from './Entities/hostel.Entity';
     // Database connection
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: 'b4free.net',
       port: 3306,
-      username: 'root',
-      password: '',
-      database: 'RealEstate_Database',
+      username: 'heslgb1',
+      password: 'qwertyuiop',
+      database: 'heslgb_db1',
       entities: [ListingProperty, Explore, Chat, User, Agent,News,House,searchEntity,Hostel],
       synchronize: false,
     }),
