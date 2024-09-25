@@ -41,7 +41,7 @@ import { Hostel } from './Entities/hostel.Entity';
       password: 'qwertyuiop',
       database: 'heslgb_db1',
       entities: [ListingProperty, Explore, Chat, User, Agent,News,House,searchEntity,Hostel],
-      synchronize: false,
+      synchronize: true,
     }),
 
     ListingPropertyModule,
