@@ -1,11 +1,17 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { ConfigService } from '@nestjs/config';
+import * as dotenv from 'dotenv';
+
 
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {abortOnError:false});
   app.enableCors();
+  dotenv.config();
+
+  const configService = app.get(ConfigService);
 
   // Swagger configuration
   const config = new DocumentBuilder()

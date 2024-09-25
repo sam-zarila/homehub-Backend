@@ -24,6 +24,9 @@ import { SearchModule } from './search/search.module';
 import { searchEntity } from './Entities/Search.Entity';
 import { HostelModule } from './hostel/hostel.module';
 import { Hostel } from './Entities/hostel.Entity';
+import { ConfigModule } from '@nestjs/config';
+import { ConfigurationModule } from './database-configuration/config.module';
+import { DatabaseModule } from './database-configuration/database.module';
 
 @Module({
   imports: [
@@ -33,17 +36,10 @@ import { Hostel } from './Entities/hostel.Entity';
     }),
     
     // Database connection
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'b4free.net',
-      port: 3306,
-      username: 'heslgb1',
-      password: 'qwertyuiop',
-      database: 'heslgb_db1',
-      entities: [ListingProperty, Explore, Chat, User, Agent,News,House,searchEntity,Hostel],
-      synchronize: true,
-    }),
+      ConfigurationModule,
+      DatabaseModule,
 
+          
     ListingPropertyModule,
     ExploreModule,
     ChatModule,
